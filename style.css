@@ -1,0 +1,89 @@
+.navbar{
+    background-color: rgba(176, 39, 39, 0.929);
+    height: 80px;
+}
+.navbar ul{
+    margin-left: 20%;
+}
+.navbar a{
+    color: white;
+    font-size: 18px;
+}
+.navbar .navbar-brand{
+    font-size: 25px;
+    font-weight: bold;
+}
+.navbar .navbar-brand .w_size{
+    font-size: 40px;
+}
+.navbar ul li{
+    margin-right:30px;
+}
+.navbar ul li:hover {
+ background-color:#ffffffe4;
+width: 140px;
+text-align: center;
+color:  rgba(176, 39, 39, 0.929);
+border-radius: 6px;
+}
+.navbar ul li a:hover {
+   color:  rgba(176, 39, 39, 0.929);
+}
+.navbar .form-control{
+    border: none;
+   width: 300px;
+}
+.btn-st{
+    color: #fff;
+    font-size: 20px;
+        /* margin: 5px; */
+}
+.btn-st:hover{
+    /* background-color: white; */
+    border: 2px solid white;
+    color: white;
+    width: 100px;
+}
+.header{
+    margin-top: 80px;
+    background-color: #ddd;
+    box-shadow: 4px 4px 10px #444;
+}
+.main{
+    margin-top: 30px;
+}
+.main .main-text{
+    background-color: #ddd;
+    padding: 30px;
+    border-left: 5px solid rgb(255, 221, 0);
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+
+}
+.footer .text-uppercase{
+    border-bottom: 5px solid rgba(176, 39, 39, 0.929);
+}
+.footer a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+}
+.footer ul li{
+    padding-top: 5px;
+
+}
+.footer ul li:hover{
+    border:2px solid white;
+    background-color: #ddd;
+    color: #000;
+    border-radius: 6px;
+  
+}
+.footer ul li a:hover{
+    color: #000;
+    font-weight: bold;
+}
+.footer .copyright{
+    font-size: 20px;
+}
