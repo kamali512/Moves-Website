@@ -3,11 +3,11 @@
     height: 80px;
 }
 .navbar ul{
-    margin-left: 20%;
+    margin-left:5%;
 }
 .navbar a{
     color: white;
-    font-size: 18px;
+    font-size: 16px;
 }
 .navbar .navbar-brand{
     font-size: 25px;
@@ -33,6 +33,13 @@ border-radius: 6px;
     border: none;
    width: 300px;
 }
+
+.modal-header{
+    background-color: rgba(176, 39, 39, 0.929);
+    color: #fff;
+    justify-content: center;
+    /* text-align: center; */
+}
 .btn-st{
     color: #fff;
     font-size: 20px;
@@ -52,6 +59,9 @@ border-radius: 6px;
 .main{
     margin-top: 30px;
 }
+.main-detail{
+    margin-top: 100px;
+}
 .main .main-text{
     background-color: #ddd;
     padding: 30px;
@@ -61,6 +71,59 @@ border-radius: 6px;
     margin-bottom: 30px;
 
 }
+.movie-item {
+    background-color: #fff;
+}
+
+.movie-item-thumbnail {
+    position: relative;
+}
+
+.movie-item-thumbnail img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.movie-item-overlay {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+    top:0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    display: none;
+    transition: all 1s;
+}
+
+.movie-item:hover .movie-item-overlay {
+    display: flex;
+    cursor: pointer;
+}
+
+
+.basic-info {
+    padding: 0 8px;
+    font-weight: 500;
+}
+
+.basic-info .bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products-list img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.img-fluid{
+    object-fit: cover;
+}
+
 .footer .text-uppercase{
     border-bottom: 5px solid rgba(176, 39, 39, 0.929);
 }

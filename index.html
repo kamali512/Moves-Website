@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap-5.3.0-alpha1-dist//css//bootstrap.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"  type="module" defer></script>
     <title>W Movies</title>
 </head>
 <body>
@@ -21,7 +26,7 @@
           <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">HOME</a>
+                <a class="nav-link" href="./index.html">HOME</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">MOVIES</a>
@@ -38,14 +43,86 @@
             </ul>
             <form class="d-flex search_box" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <input type="button" value="Login"  class="btn btn-st">
-              <input type="button" value="Register"  class="btn btn-st">
+              <input type="button" value="Login"  class="btn btn-st " data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">
+              <input type="button" value="Register"  class="btn btn-st" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
             </form>
           </div>
         </div>
       </nav>
 
     <!-- Navbar end -->
+
+
+    <!-- modal register form  start-->
+
+    <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Registrastion Form</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Name">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="col-form-label">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Your Email Address">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="col-form-label">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Your Password">
+              </div>
+              <div class="mb-3">
+                <label for="confirm_password" class="col-form-label">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Your Password">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Login</button>
+            <button type="button" class="btn btn-success">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal register form end -->
+
+    <!-- modal login form  start-->
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Login Form</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="email" class="col-form-label">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Your Email Address">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="col-form-label">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Your Password">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success">Login</button>
+            <button type="button" class="btn btn-warning">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal login form end -->
+
 
     <!-- HERO SECTION start -->
     <header class="header">
@@ -98,79 +175,44 @@
 
     <!-- Movies section start -->
     <main class="main">
-    <div class="container">
+    <div class="container movies-list-wrapper">
         <h3 class="main-text">POPULAR IN THEATERS</h3>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="movie-item shadow p-3 mb-5 bg-body-tertiary rounded">
-              <a
-                href="https://www.youtube.com/watch?v=owK1qxDselE"
-                target="_blank"
-              >
-                <img
-                  src="https://www.vita-romae.com/images/gladiator-movie.jpg"
-                  class="img-fluid"
-                  alt="movie 1"
-                />
-              </a>
-              <h4>Gladiator</h4>
-              <small>2002</small> <br />
-              <small>Rating: 9.1</small>
-              <button class="btn btn-success d-block mt-2">Buy Now</button>
+        <div class="filters-wrapper py-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="d-flex">
+                <select class="form-select" id="movies-sort">
+                  <option value="-1">Sort</option>
+                  <option value="name-asc">Name (A-Z) | Ascending</option>
+                  <option value="name-desc">Name (Z-A) | Descending</option>
+                  <option value="rating">Rating</option>
+                  <option value="year">Year Released</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="movie-item shadow p-3 mb-5 bg-body-tertiary rounded">
-              <a
-                href="https://www.youtube.com/watch?v=owK1qxDselE"
-                target="_blank"
-              >
-                <img
-                  src="https://www.vita-romae.com/images/gladiator-movie.jpg"
-                  class="img-fluid"
-                  alt="movie 1"
-                />
-              </a>
-              <h4>Gladiator</h4>
-              <small>2002</small> <br />
-              <small>Rating: 9.1</small>
-              <button class="btn btn-success d-block mt-2">Buy Now</button>
+            <div class="col-md-4">
+              <select class="form-select" id="genres-filter">
+                <option value="-1">Select Genre</option>
+                <option value="2">Action</option>
+                <option value="3">Sci-Fi</option>
+                <option value="4">Comedy</option>
+                <option value="5">Drama</option>
+                <option value="6">Crime Thriller</option>
+                <option value="7">Animated</option>
+              </select>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="movie-item shadow p-3 mb-5 bg-body-tertiary rounded">
-              <img
-                src="https://www.vita-romae.com/images/gladiator-movie.jpg"
-                class="img-fluid"
-                alt="movie 1"
-              />
-              <h4>Gladiator</h4>
-              <small>2002</small> <br />
-              <small>Rating: 9.1</small>
-              <button class="btn btn-success d-block mt-2">Buy Now</button>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="movie-item shadow p-3 mb-5 bg-body-tertiary rounded">
-              <a
-                href="https://www.youtube.com/watch?v=owK1qxDselE"
-                target="_blank"
-              >
-                <img
-                  src="https://www.vita-romae.com/images/gladiator-movie.jpg"
-                  class="img-fluid"
-                  alt="movie 1"
-                />
-              </a>
-              <h4>Gladiator</h4>
-              <small>2002</small> <br />
-              <small>Rating: 9.1</small>
-              <button class="btn btn-success d-block mt-2">Buy Now</button>
+            <div class="col-md-4">
+              <select class="form-select" id="industry-filter">
+                <option value="-1">Select Industry</option>
+                <option value="Hollywood">Hollywood</option>
+                <option value="Bollywood">Bollywood</option>
+                <option value="English">English</option>
+              </select>
             </div>
           </div>
         </div>
-      </div>
-
+        <div class="row" id="movies-list-row">  </div>
+        </div>
     </main>
     <!-- movies section end -->
        
@@ -267,6 +309,6 @@
     <!-- BootStrap JS -->
 
     <script src="./bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
-    <script src="./script.js"></script>
+  
 </body>
 </html>
