@@ -3,7 +3,7 @@
     height: 80px;
 }
 .navbar ul{
-    margin-left:5%;
+    margin-left:3%;
 }
 .navbar a{
     color: white;
@@ -17,7 +17,7 @@
     font-size: 40px;
 }
 .navbar ul li{
-    margin-right:30px;
+    margin-right:20px;
 }
 .navbar ul li:hover {
  background-color:#ffffffe4;
@@ -52,7 +52,7 @@ border-radius: 6px;
     width: 100px;
 }
 .header{
-    margin-top: 80px;
+    margin-top: 50px;
     background-color: #ddd;
     box-shadow: 4px 4px 10px #444;
 }
@@ -149,4 +149,8 @@ border-radius: 6px;
 }
 .footer .copyright{
     font-size: 20px;
+}
+.cart-icon {
+    font-size: 24px;
+    margin: 0 8px;
 }

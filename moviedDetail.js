@@ -1,12 +1,11 @@
 import { moviesList } from "./data/movies.js";
 import { genres } from "./data/genres.js";
+import {renderAllMovies, renderMovieItem} from "./helpers.js"
 const searchParams = new URLSearchParams(document.location.search);
 
 const movieId = searchParams.get("id");
 
 const movie = moviesList.find((m) => m.id == movieId);
-
-
 
 const thumbnail = document.querySelector('#movie-thumbnail')
 const mainTitle = document.querySelector('#movie-title-main')
@@ -17,6 +16,7 @@ const badge = document.querySelector("#badge")
 const price = document.querySelector("#price")
 const tailer = document.querySelector("#tailer")
 const para   =  document.querySelector("#para")
+const cartRow = document.querySelector("#cart-row");
 thumbnail.setAttribute("src", movie.thumbnail)
 tailer.setAttribute("src",movie.trailer)
 mainTitle.innerText = movie.title
@@ -30,69 +30,52 @@ para.innerText = movie.summary
 
 //Related movies logic
 
-//step 1: identifiy realted movies + exclude the current movies
-const relatedMovies = moviesList.filter((m)=>m.genre && m.id !== movie.id);
 
+const relatedMovies = moviesList.filter(
+  (m)=> m.genre === movie.genre && m.id !== movie.id
+  );
+//step 1: identifiy realted movies + exclude the current movies
 
 const moviesRow = document.querySelector("#movies-list-row");
-
-const renderAllMovies = (_moviesList) => {
-  moviesRow.innerHTML = "";
-
-  _moviesList.slice(0, 4).forEach((movie) => {
-    renderMovieItem(movie);
-  });
-};
-
-const renderMovieItem = (movie) => {
-    const movieItemCol = document.createElement("div");
-    movieItemCol.className = "col-md-3";
-  
-    movieItemCol.innerHTML = `<div class="movie-item shadow mb-5 bg-body-tertiary rounded">
-      <div class="movie-item-thumbnail">
-        <img
-          src="${movie.thumbnail}"
-          class="img-fluid"
-          alt="movie 1"
-        />
-        <div class="movie-item-overlay">
-          <b>Imdb: ${movie.rating}/10</b>
-          <div>
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star"></span>
-          </div>
-          <a href="./movieDetails.html?id=${movie.id}">
-              <button class="btn btn-outline-warning btn-sm mt-2">View Details</button>
-          </a>
-        </div>
-      </div>
-  
-      <div class="basic-info">
-        <h6 class="mt-2">${movie.title}</h6>
-        <div class="bottom">
-          <small>
-            <span>${movie.releaseYear}</span>
-            <span>|</span>
-            <span>${movie.duration || 0} min</span>
-          </small>
-          <span class="badge text-bg-dark">${getGenreNameById(movie.id)}</span>
-        </div>
-      </div>
-      <br />
-    </div>`;
-  
-    moviesRow.appendChild(movieItemCol);
-  };
-
-  const getGenreNameById = (id) => {
-    // find single genre from the array on the basis of id
-    // and return its name
-    const genre = genres.find((g) => g.id === id);
-    return genre.name;
-  };
-  
   // diplay all movies
-  renderAllMovies(relatedMovies);
+  renderAllMovies(relatedMovies, moviesRow);
+
+  // add to cart functionnality
+  const addToCart = () => {  
+    // localStorage.removeItem("cartItems")
+    // return
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  
+    cartItems.push(movie.id);
+  
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
+  
+  const cartButton = document.querySelector("#cart-btn");
+  
+  cartButton.addEventListener("click", addToCart);
+  
+  const renderCartItems = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  
+    cartItems.forEach((id) => {
+      const currentMovie = moviesList.find((m) => m.id === id);
+  
+      const columnLeft = document.createElement("div");
+      const columnRight = document.createElement("div");
+  
+      columnLeft.className = "col-md-3";
+      columnRight.className = "col-md-9";
+  
+      columnLeft.innerHTML = `<img src="${currentMovie.thumbnail}" class="img-fluid img-thumbnail" alt="" />`;
+  
+      columnRight.innerHTML = `<h4>${currentMovie.title}</h4>`;
+  
+      cartRow.appendChild(columnLeft)
+      cartRow.appendChild(columnRight)
+    });
+  };
+  
+  const cartIcon = document.querySelector('.cart-icon')
+  
+  cartIcon.addEventListener('click', renderCartItems)

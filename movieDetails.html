@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap-5.3.0-alpha1-dist//css//bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <!-- <link rel="stylesheet" href="./movieStyle.css"> -->
     <link rel="stylesheet" href="./style.css">
     <title>W Movies</title>
@@ -43,11 +44,131 @@
               <input type="button" value="Login"  class="btn btn-st " data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">
               <input type="button" value="Register"  class="btn btn-st" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
             </form>
+
+            <div>
+              <span
+                class="fa fa-shopping-cart text-primary d-block checked cart-icon"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal3"
+              ></span>
+            </div>
           </div>
         </div>
       </nav>
 
     <!-- Navbar end -->
+     <!-- modal register form  start-->
+
+     <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Registrastion Form</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Name">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="col-form-label">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Your Email Address">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="col-form-label">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Your Password">
+              </div>
+              <div class="mb-3">
+                <label for="confirm_password" class="col-form-label">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Your Password">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Login</button>
+            <button type="button" class="btn btn-success">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal register form end -->
+
+    <!-- modal login form  start-->
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Login Form</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="email" class="col-form-label">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Your Email Address">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="col-form-label">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Your Password">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success">Login</button>
+            <button type="button" class="btn btn-warning">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal login form end -->
+
+<!-- // Add to cart moduole start -->
+
+<div
+class="modal fade"
+id="exampleModal3"
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <div class="row" id="cart-row">
+
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+      >
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- add to cart modulee end -->
 
      <!-- MOVIES DETAILS START -->
 <main class="main-detail"> 
@@ -74,7 +195,7 @@
             <h4 id="price"></h4>
 
             <div class="d-flex gap-2">
-              <button class="btn btn-warning d-block">Add to Cart</button>
+              <button class="btn btn-warning d-block" id="cart-btn">Add to Cart</button>
               <button class="btn btn-success d-block">Buy Now</button>
             </div>
           </div>
